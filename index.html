@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Lora:ital,wght@0,500;0,600;1,400&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Navigasi -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <button type="button" class="brand" id="nav-home">
+        <span class="brand-dot"></span>
+        Blog<span class="brand-sub">Learning in Public</span>
+      </button>
+      <div class="nav-actions">
+        <button type="button" class="nav-link active" id="btn-all-posts">Beranda</button>
+        <button type="button" class="nav-link" id="btn-about">Tentang Penulis</button>
+        <button type="button" class="btn-icon" id="theme-toggle" title="Ganti Tema" aria-label="Ganti Tema">
+          🌙
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- TAMPILAN 1: BERANDA (DAFTAR 2 BLOG) -->
+  <main id="home-view" class="container">
+    <header class="hero-home">
+      <span class="badge-pill">Learning in Public • Tugas Teknik Informatika</span>
+      <h1>Catatan Perjalanan Belajar &amp; Eksplorasi Kode</h1>
+      <p class="hero-desc">
+        Dokumentasi pengalaman nyata selama mempelajari arsitektur backend modern hingga pengembangan antarmuka web interaktif.
+      </p>
+
+      <!-- Filter Kategori -->
+      <div class="filter-bar" id="category-filters">
+        <button type="button" class="filter-chip active" data-category="Semua">Semua</button>
+        <button type="button" class="filter-chip" data-category="Backend & Microservices">Backend &amp; Microservices</button>
+        <button type="button" class="filter-chip" data-category="Frontend">Frontend</button>
+      </div>
+    </header>
+
+    <!-- Daftar Kartu Artikel -->
+    <section class="posts-grid" id="posts-grid"></section>
+  </main>
+
+  <!-- TAMPILAN 2: DETAIL ARTIKEL BLOG -->
+  <main id="article-view" class="container hidden">
+    <div class="top-bar">
+      <button type="button" class="btn-back" id="btn-back">
+        ← Kembali ke Daftar Blog
+      </button>
+      <span class="article-category-badge" id="detail-category">Kategori</span>
+    </div>
+
+    <article class="article-wrapper">
+      <header class="article-header">
+        <div class="meta-row" id="detail-meta"></div>
+        <h1 class="article-title" id="detail-title">Judul Artikel</h1>
+        <p class="article-subtitle" id="detail-subtitle">Subjudul Artikel</p>
+
+        <div class="author-box">
+          <div class="avatar" id="detail-avatar">TI</div>
+          <div>
+            <div class="author-name">Muhammad Syahid Al Fajri (NIM: 26552012007)</div>
+            <div class="author-role">Mahasiswa Teknik Informatika</div>
+          </div>
+        </div>
+      </header>
+
+      <hr class="divider" />
+
+      <!-- Konten Storytelling Dinamis -->
+      <div class="article-body" id="detail-content"></div>
+
+      <!-- Apresiasi Pembaca -->
+      <div class="clap-box">
+        <div>
+          <strong>Artikel ini bermanfaat?</strong>
+          <p class="clap-desc">Klik tombol di samping untuk memberikan apresiasi catatan belajar ini.</p>
+        </div>
+        <button type="button" class="btn-clap" id="btn-clap">
+          👏 Apresiasi (<span id="clap-count">0</span>)
+        </button>
+      </div>
+    </article>
+
+    <!-- Rekomendasi Artikel Lainnya -->
+    <section class="related-section">
+      <h3>Baca Artikel Lainnya</h3>
+      <div class="related-grid" id="related-grid"></div>
+    </section>
+  </main>
+
+  <!-- Modal Tentang Penulis -->
+  <div id="about-modal" class="modal hidden" role="dialog" aria-modal="true">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3>Tentang Penulis &amp; Proyek Blog</h3>
+        <button type="button" class="btn-close" id="close-modal" aria-label="Tutup">✕</button>
+      </div>
+      <p>
+        Halo! Saya mahasiswa <strong>Teknik Informatika</strong> yang sedang mendokumentasikan proses belajar secara terbuka (<em>Learning in Public</em>).
+      </p>
+      <p>
+        Blog ini berisi 2 studi kasus nyata: membangun layanan <strong>Microservices</strong> dengan <strong>Golang (Go Fiber), Vanilla JS, MongoDB, dan Google Cloud Platform (GCP)</strong>, serta merancang <strong>Landing Page</strong> interaktif menggunakan <strong>Vue.js</strong>.
+      </p>
+      <div class="modal-info">
+        <div><strong>Penulis:</strong> Muhammad Syahid Al Fajri</div>
+        <div><strong>NIM:</strong> 26552012007</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <p>© 2026 Blog Mahasiswa Teknik Informatika — Dokumentasi <em>Learning in Public</em>.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
